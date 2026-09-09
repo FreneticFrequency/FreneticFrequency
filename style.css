@@ -313,12 +313,12 @@ h1 span {
 /* =========================================
    SOUNDCLOUD
    ORIGINAL SIZE
-   525px × 350px
+   525px × 250px
    ========================================= */
 
 .soundcloud-widget {
     width: 525px;
-    max-width: 100%;
+    max-width: 50%;
 
     margin-top: 38px;
 }
@@ -326,7 +326,7 @@ h1 span {
 .soundcloud-widget iframe {
     display: block;
 
-    width: 100%;
+    width: 50%;
     height: 350px;
 
     border: 0;
@@ -377,7 +377,7 @@ h1 span {
 
 .spotify-widget {
     width: 525px;
-    max-width: 100%;
+    max-width: 50%;
 
     margin-top: 24px;
 }
@@ -385,7 +385,7 @@ h1 span {
 .spotify-widget iframe {
     display: block;
 
-    width: 100%;
+    width: 50%;
     height: 350px;
 
     border: 0;
