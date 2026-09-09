@@ -15,7 +15,7 @@
 
     <meta name="theme-color" content="#050505">
 
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -24,7 +24,7 @@
         rel="stylesheet"
     >
 
-    <!-- Main CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -34,26 +34,27 @@
 <main class="page">
 
     <!-- =========================================
-         YOUTUBE VISUAL
+         RIGHT SIDE YOUTUBE VISUAL
          ========================================= -->
 
     <div class="hero-video" aria-hidden="true">
 
         <iframe
             src="https://www.youtube.com/embed/6CnGqwbpaNg?autoplay=1&mute=1&loop=1&playlist=6CnGqwbpaNg&controls=0&rel=0&modestbranding=1"
-            title="Frenetic Frequency Official Video"
-            allow="autoplay; encrypted-media; picture-in-picture"
+            title="Frenetic Frequency"
+            allow="autoplay; encrypted-media"
             allowfullscreen>
         </iframe>
 
     </div>
 
 
-    <!-- =========================================
-         VISUAL OVERLAYS
-         ========================================= -->
+    <!-- Video fade -->
 
-    <div class="video-overlay"></div>
+    <div class="video-fade"></div>
+
+
+    <!-- Screen texture -->
 
     <div class="noise"></div>
 
@@ -65,7 +66,7 @@
     <section class="content">
 
 
-        <!-- TOP INFORMATION -->
+        <!-- TOP LINE -->
 
         <div class="topline">
 
@@ -110,33 +111,51 @@
 
 
         <!-- =========================================
-             SOUNDCLOUD
+             SOUNDCLOUD PLAYER
              ========================================= -->
 
         <div class="soundcloud-player">
 
-            <div class="soundcloud-label">
-                Official SoundCloud
+            <div class="soundcloud-header">
+
+                <span class="soundcloud-status"></span>
+
+                <span>
+                    SOUND SYSTEM / RELEASES
+                </span>
+
             </div>
 
-            <div class="soundcloud-frame">
+
+            <div class="soundcloud-visual">
+
+                <div class="glitch-line glitch-one"></div>
+                <div class="glitch-line glitch-two"></div>
+                <div class="glitch-line glitch-three"></div>
+
+
+                <!-- REAL SOUNDCLOUD EMBED -->
 
                 <iframe
-                    width="100%"
-                    height="450"
+                    class="soundcloud-iframe"
                     scrolling="no"
                     frameborder="no"
-                    allow="autoplay"
-                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2296428090&color=%23000000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+                    allow="autoplay; encrypted-media"
+                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2296428090&color=%23000000&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
                 </iframe>
 
             </div>
+
+
+            <!-- Bottom visual distortion -->
+
+            <div class="soundcloud-distortion"></div>
 
         </div>
 
 
         <!-- =========================================
-             ARTIST BIO
+             BIO
              ========================================= -->
 
         <div class="bio">
@@ -144,6 +163,7 @@
             <span class="bio-label">
                 Artist Bio
             </span>
+
 
             <p>
                 Jose, known as Frenetic Frequency, is a dark night
@@ -154,12 +174,14 @@
                 late-night dancefloors.
             </p>
 
+
             <p>
                 Blending controlled chaos with precise sound design,
                 Frenetic Frequency creates intense, mind-altering sonic journeys
                 that dissolve perception and drive listeners into heightened
                 states of consciousness.
             </p>
+
 
             <p>
                 His performances are immersive, powerful, and uncompromising,
@@ -170,7 +192,7 @@
 
 
         <!-- =========================================
-             CTA BUTTONS
+             BUTTONS
              ========================================= -->
 
         <div class="cta-row">
@@ -236,11 +258,16 @@
 
 
     <!-- =========================================
-         SCAN TEXT
+         SIDE SCAN
          ========================================= -->
 
     <div class="scan">
-        COMING SOON / FRENETIC FREQUENCY
+
+        <span></span>
+
+        COMING SOON /
+        FRENETIC FREQUENCY
+
     </div>
 
 
@@ -264,7 +291,7 @@
 
             <span class="visitor-counter">
                 VISITORS:
-                <strong id="visitorCount">000000</strong>
+                <strong id="visitorCount">000001</strong>
             </span>
 
         </div>
