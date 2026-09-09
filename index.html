@@ -15,7 +15,6 @@
 
     <meta name="theme-color" content="#050505">
 
-    <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -24,7 +23,6 @@
         rel="stylesheet"
     >
 
-    <!-- MAIN CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -50,12 +48,7 @@
     </div>
 
 
-    <!-- VIDEO DARKENING / FADE -->
-
     <div class="video-overlay"></div>
-
-
-    <!-- SCREEN NOISE -->
 
     <div class="noise"></div>
 
@@ -66,8 +59,6 @@
 
     <section class="content">
 
-
-        <!-- TOP INFORMATION -->
 
         <div class="topline">
 
@@ -83,14 +74,10 @@
         </div>
 
 
-        <!-- KICKER -->
-
         <div class="kicker">
             Psytrance · Twilight · Live Act
         </div>
 
-
-        <!-- ARTIST NAME -->
 
         <h1>
             Frenetic
@@ -98,8 +85,6 @@
             <span>Frequency</span>
         </h1>
 
-
-        <!-- INTRO -->
 
         <p class="sub">
             A new experience is being assembled.
@@ -112,39 +97,44 @@
 
 
         <!-- =========================================
-             SOUNDCLOUD GLITCH PLAYER
+             SOUNDCLOUD
              ========================================= -->
 
         <div class="soundcloud-player">
 
 
-            <!-- DECORATIVE TOP GLITCH -->
+            <!-- GLITCH BORDER -->
 
-            <div class="sc-top-glitch"></div>
+            <div class="sc-border-glitch sc-border-top"></div>
+            <div class="sc-border-glitch sc-border-right"></div>
+            <div class="sc-border-glitch sc-border-bottom"></div>
+            <div class="sc-border-glitch sc-border-left"></div>
 
 
             <!-- HEADER -->
 
             <div class="sc-header">
 
-                <span class="sc-led"></span>
+                <div class="sc-header-left">
 
-                <span>
-                    SOUND SYSTEM // RELEASES
-                </span>
+                    <span class="sc-led"></span>
 
-                <span class="sc-code">
-                    FF-001
+                    <span>
+                        SOUND SYSTEM
+                    </span>
+
+                </div>
+
+                <span class="sc-header-code">
+                    FF / 2296428090
                 </span>
 
             </div>
 
 
-            <!-- PLAYER WINDOW -->
+            <!-- REAL SOUNDCLOUD -->
 
-            <div class="sc-window">
-
-                <!-- REAL SOUNDCLOUD EMBED -->
+            <div class="sc-player">
 
                 <iframe
                     class="sc-iframe"
@@ -154,23 +144,10 @@
                     src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2296428090&color=%23000000&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
                 </iframe>
 
-
-                <!-- VISUAL EFFECT LAYERS -->
-
-                <div class="sc-scanlines"></div>
-
-                <div class="sc-noise"></div>
-
-                <div class="sc-glitch-bar sc-bar-1"></div>
-
-                <div class="sc-glitch-bar sc-bar-2"></div>
-
-                <div class="sc-glitch-bar sc-bar-3"></div>
-
             </div>
 
 
-            <!-- FOOTER -->
+            <!-- BOTTOM LABEL -->
 
             <div class="sc-footer">
 
@@ -179,25 +156,28 @@
                 </span>
 
                 <span>
-                    LIVE SIGNAL
+                    RELEASES
+                </span>
+
+                <span class="sc-live">
+                    ● LIVE SIGNAL
                 </span>
 
             </div>
 
 
-            <!-- CORNER MARKS -->
+            <!-- DECORATIVE GLITCH -->
 
-            <span class="sc-corner sc-corner-tl"></span>
-            <span class="sc-corner sc-corner-tr"></span>
-            <span class="sc-corner sc-corner-bl"></span>
-            <span class="sc-corner sc-corner-br"></span>
+            <div class="sc-glitch-block sc-glitch-a"></div>
+            <div class="sc-glitch-block sc-glitch-b"></div>
+            <div class="sc-glitch-block sc-glitch-c"></div>
 
 
         </div>
 
 
         <!-- =========================================
-             ARTIST BIO
+             BIO
              ========================================= -->
 
         <div class="bio">
@@ -245,7 +225,6 @@
                 Yoni Records →
             </a>
 
-
             <a
                 class="btn"
                 href="https://linktr.ee/freneticfrequency"
@@ -254,7 +233,6 @@
             >
                 Follow the Project →
             </a>
-
 
             <a
                 class="btn"
@@ -269,7 +247,7 @@
 
 
         <!-- =========================================
-             ARTIST INFORMATION
+             META
              ========================================= -->
 
         <div class="meta">
@@ -279,12 +257,10 @@
                 <strong>Fundão · Portugal</strong>
             </div>
 
-
             <div>
                 <small>Active since</small>
                 <strong>2006</strong>
             </div>
-
 
             <div>
                 <small>Contact</small>
@@ -297,7 +273,7 @@
 
 
     <!-- =========================================
-         SIDE SCAN
+         SIDE TEXT
          ========================================= -->
 
     <div class="scan">
@@ -320,13 +296,9 @@
 
         <div class="footer-content">
 
-            <span>
-                FRENETIC FREQUENCY
-            </span>
+            <span>FRENETIC FREQUENCY</span>
 
-            <span>
-                © 2026
-            </span>
+            <span>© 2026</span>
 
             <span>
                 VISITORS:
@@ -341,17 +313,15 @@
 </main>
 
 
-<!-- =========================================
-     VISITOR COUNTER
-     ========================================= -->
-
 <script>
 
 (function () {
 
-    const storageKey = "freneticFrequencyVisitorCount";
+    const storageKey =
+        "freneticFrequencyVisitorCount";
 
-    let count = localStorage.getItem(storageKey);
+    let count =
+        localStorage.getItem(storageKey);
 
     if (!count) {
 
@@ -359,13 +329,18 @@
 
     } else {
 
-        count = parseInt(count, 10) + 1;
+        count =
+            parseInt(count, 10) + 1;
 
     }
 
-    localStorage.setItem(storageKey, count);
+    localStorage.setItem(
+        storageKey,
+        count
+    );
 
-    const counter = document.getElementById("visitorCount");
+    const counter =
+        document.getElementById("visitorCount");
 
     if (counter) {
 
