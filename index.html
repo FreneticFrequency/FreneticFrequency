@@ -3,13 +3,8 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Frenetic Frequency — Official Website</title>
 
@@ -18,886 +13,31 @@
         content="Frenetic Frequency — Psytrance / Dark Psy Live Act. Official website."
     >
 
-    <meta
-        name="theme-color"
-        content="#050505"
-    >
+    <meta name="theme-color" content="#050505">
 
-
-    <!-- =====================================================
-         GOOGLE FONTS
-         ===================================================== -->
-
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
         rel="stylesheet"
     >
 
-
-    <!-- =====================================================
-         YOUR ORIGINAL CSS
-         ===================================================== -->
-
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
-
-    <!-- =====================================================
-         NEW VISUAL OVERRIDES
-         These rules intentionally override the old player
-         and background-video positioning.
-         ===================================================== -->
-
-    <style>
-
-        /* =====================================================
-           PAGE LAYERING
-           ===================================================== */
-
-        .page {
-            position: relative;
-            overflow: hidden;
-        }
-
-
-        /* =====================================================
-           YOUTUBE VIDEO
-           
-           The video is now:
-           - smaller
-           - on the right
-           - faded
-           - behind the main design
-           - blended into black
-           ===================================================== */
-
-        .hero-video {
-
-            position: fixed !important;
-
-            top: 8vh !important;
-            right: -7vw !important;
-
-            left: auto !important;
-            bottom: auto !important;
-
-            width: 52vw !important;
-            height: 84vh !important;
-
-            z-index: 1 !important;
-
-            overflow: hidden;
-
-            opacity: 0.38;
-
-            pointer-events: none;
-
-            background: #000;
-
-            -webkit-mask-image:
-                linear-gradient(
-                    to left,
-                    #000 45%,
-                    rgba(0,0,0,0.8) 65%,
-                    transparent 100%
-                );
-
-            mask-image:
-                linear-gradient(
-                    to left,
-                    #000 45%,
-                    rgba(0,0,0,0.8) 65%,
-                    transparent 100%
-                );
-
-        }
-
-
-        /* Video itself */
-
-        .hero-video iframe {
-
-            position: absolute !important;
-
-            top: 50% !important;
-            left: 50% !important;
-
-            width: 120% !important;
-            height: 120% !important;
-
-            min-width: 0 !important;
-            min-height: 0 !important;
-
-            transform:
-                translate(-50%, -50%)
-                scale(1.12);
-
-            border: 0;
-
-            opacity: 0.8;
-
-            filter:
-                grayscale(100%)
-                contrast(1.15)
-                brightness(0.65);
-
-        }
-
-
-        /* =====================================================
-           VIDEO FADE / BLEND
-           ===================================================== */
-
-        .hero-video::before {
-
-            content: "";
-
-            position: absolute;
-
-            inset: 0;
-
-            z-index: 5;
-
-            pointer-events: none;
-
-            background:
-
-                linear-gradient(
-                    90deg,
-                    #050505 0%,
-                    rgba(5,5,5,0.96) 8%,
-                    rgba(5,5,5,0.45) 35%,
-                    transparent 65%,
-                    rgba(5,5,5,0.75) 100%
-                ),
-
-                linear-gradient(
-                    180deg,
-                    #050505 0%,
-                    transparent 18%,
-                    transparent 78%,
-                    #050505 100%
-                );
-
-        }
-
-
-        /* =====================================================
-           SECOND VIDEO GLITCH / ATMOSPHERE LAYER
-           ===================================================== */
-
-        .hero-video::after {
-
-            content: "";
-
-            position: absolute;
-
-            inset: 0;
-
-            z-index: 6;
-
-            pointer-events: none;
-
-            opacity: 0.35;
-
-            background:
-
-                repeating-linear-gradient(
-                    0deg,
-                    transparent 0px,
-                    transparent 3px,
-                    rgba(255,255,255,0.025) 4px
-                ),
-
-                linear-gradient(
-                    90deg,
-                    transparent 0%,
-                    rgba(255,255,255,0.04) 55%,
-                    transparent 100%
-                );
-
-            mix-blend-mode: screen;
-
-        }
-
-
-        /* =====================================================
-           VIDEO OVERLAY
-           ===================================================== */
-
-        .video-overlay {
-
-            position: fixed !important;
-
-            inset: 0 !important;
-
-            z-index: 2 !important;
-
-            pointer-events: none;
-
-            background:
-
-                radial-gradient(
-                    ellipse at 80% 48%,
-                    transparent 0%,
-                    rgba(5,5,5,0.18) 38%,
-                    rgba(5,5,5,0.72) 75%,
-                    #050505 100%
-                );
-
-        }
-
-
-        /* =====================================================
-           MAIN CONTENT
-           
-           IMPORTANT:
-           Content sits above video.
-           ===================================================== */
-
-        .content {
-
-            position: relative !important;
-
-            z-index: 10 !important;
-
-        }
-
-
-        /* =====================================================
-           SOUNDCLOUD PLAYER
-           
-           Dark translucent object partially leaving the screen.
-           ===================================================== */
-
-        .youtube-player {
-
-            position: fixed !important;
-
-            top: 50% !important;
-
-            right: -185px !important;
-
-            left: auto !important;
-
-            transform:
-                translateY(-50%)
-                rotate(-1deg);
-
-            width: 440px !important;
-
-            height: 205px !important;
-
-            z-index: 20 !important;
-
-            overflow: hidden;
-
-            opacity: 0.34;
-
-            background:
-                rgba(5,5,5,0.58);
-
-            border:
-                1px solid rgba(255,255,255,0.13);
-
-            box-shadow:
-
-                -35px 0 80px rgba(0,0,0,0.9),
-
-                inset 0 0 50px rgba(0,0,0,0.75);
-
-            backdrop-filter:
-                blur(8px);
-
-            -webkit-backdrop-filter:
-                blur(8px);
-
-            filter:
-                grayscale(100%)
-                contrast(1.2);
-
-            transition:
-                right 0.45s ease,
-                opacity 0.4s ease,
-                transform 0.45s ease;
-
-        }
-
-
-        /* =====================================================
-           SOUNDCLOUD HOVER
-           ===================================================== */
-
-        .youtube-player:hover {
-
-            right: -70px !important;
-
-            opacity: 0.62;
-
-            transform:
-                translateY(-50%)
-                rotate(0deg);
-
-        }
-
-
-        /* =====================================================
-           SOUNDCLOUD LABEL
-           ===================================================== */
-
-        .youtube-label {
-
-            position: relative;
-
-            z-index: 20;
-
-            height: 34px;
-
-            display: flex;
-
-            align-items: center;
-
-            padding-left: 18px;
-
-            font-family:
-                "Space Mono",
-                monospace;
-
-            font-size: 8px;
-
-            letter-spacing: 3px;
-
-            text-transform: uppercase;
-
-            color:
-                rgba(255,255,255,0.62);
-
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(255,255,255,0.04),
-                    transparent
-                );
-
-            border-bottom:
-                1px solid rgba(255,255,255,0.08);
-
-        }
-
-
-        .youtube-label::before {
-
-            content: "///";
-
-            margin-right: 10px;
-
-            color:
-                rgba(255,255,255,0.3);
-
-        }
-
-
-        /* =====================================================
-           SOUNDCLOUD FRAME
-           ===================================================== */
-
-        .youtube-frame {
-
-            position: relative;
-
-            width: 100% !important;
-
-            height: 171px !important;
-
-            overflow: hidden;
-
-            background:
-                #050505;
-
-        }
-
-
-        /* =====================================================
-           ACTUAL SOUNDCLOUD IFRAME
-           
-           Enlarged and shifted so the native widget is cropped.
-           This makes it feel less like an embed.
-           ===================================================== */
-
-        .youtube-frame iframe {
-
-            position: absolute;
-
-            top: -22px;
-
-            left: -12px;
-
-            width: calc(100% + 24px) !important;
-
-            height: 195px !important;
-
-            border: 0;
-
-            opacity: 0.48;
-
-            filter:
-                grayscale(100%)
-                contrast(1.3)
-                brightness(0.65);
-
-        }
-
-
-        /* =====================================================
-           DARK SCREEN OVER THE SOUNDCLOUD UI
-           ===================================================== */
-
-        .youtube-frame::before {
-
-            content: "";
-
-            position: absolute;
-
-            inset: 0;
-
-            z-index: 5;
-
-            pointer-events: none;
-
-            background:
-
-                linear-gradient(
-                    90deg,
-                    rgba(0,0,0,0.7),
-                    rgba(0,0,0,0.15) 40%,
-                    rgba(0,0,0,0.72)
-                ),
-
-                linear-gradient(
-                    180deg,
-                    rgba(0,0,0,0.5),
-                    transparent 30%,
-                    rgba(0,0,0,0.75)
-                );
-
-        }
-
-
-        /* =====================================================
-           SOUNDCLOUD SCANLINES
-           ===================================================== */
-
-        .youtube-frame::after {
-
-            content: "";
-
-            position: absolute;
-
-            inset: 0;
-
-            z-index: 6;
-
-            pointer-events: none;
-
-            background:
-                repeating-linear-gradient(
-                    0deg,
-                    transparent 0px,
-                    transparent 4px,
-                    rgba(255,255,255,0.035) 5px
-                );
-
-            mix-blend-mode: screen;
-
-            opacity: 0.6;
-
-        }
-
-
-        /* =====================================================
-           SVG GLITCH DECORATION
-           ===================================================== */
-
-        .soundcloud-svg {
-
-            position: absolute;
-
-            right: 20px;
-
-            top: 50%;
-
-            width: 470px;
-
-            height: 240px;
-
-            transform:
-                translateY(-50%);
-
-            z-index: 19;
-
-            pointer-events: none;
-
-            opacity: 0.23;
-
-        }
-
-
-        .soundcloud-svg line {
-
-            stroke:
-                rgba(255,255,255,0.8);
-
-            stroke-width: 1;
-
-        }
-
-
-        .soundcloud-svg polyline {
-
-            fill: none;
-
-            stroke:
-                rgba(255,255,255,0.7);
-
-            stroke-width: 1;
-
-        }
-
-
-        /* =====================================================
-           GLITCH BARS
-           ===================================================== */
-
-        .soundcloud-glitch-bars {
-
-            position: absolute;
-
-            right: 0;
-
-            top: 25px;
-
-            z-index: 30;
-
-            width: 100%;
-
-            height: 130px;
-
-            pointer-events: none;
-
-            opacity: 0.4;
-
-            background:
-
-                linear-gradient(
-                    90deg,
-                    transparent 0%,
-                    transparent 55%,
-                    rgba(255,255,255,0.08) 55.2%,
-                    transparent 55.8%
-                ),
-
-                linear-gradient(
-                    90deg,
-                    transparent 0%,
-                    transparent 73%,
-                    rgba(255,255,255,0.12) 73.2%,
-                    transparent 74%
-                );
-
-            animation:
-                glitchShift 4s infinite steps(2);
-
-        }
-
-
-        @keyframes glitchShift {
-
-            0%,
-            90%,
-            100% {
-                transform: translateX(0);
-                opacity: 0.25;
-            }
-
-            92% {
-                transform: translateX(-12px);
-                opacity: 0.6;
-            }
-
-            94% {
-                transform: translateX(8px);
-                opacity: 0.35;
-            }
-
-            96% {
-                transform: translateX(-4px);
-                opacity: 0.55;
-            }
-
-        }
-
-
-        /* =====================================================
-           VISITOR COUNTER
-           ===================================================== */
-
-        .visitor-counter {
-
-            position: fixed;
-
-            right: 28px;
-
-            bottom: 24px;
-
-            z-index: 100;
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 8px;
-
-            font-family:
-                "Space Mono",
-                monospace;
-
-            font-size: 8px;
-
-            letter-spacing: 2px;
-
-            color:
-                rgba(255,255,255,0.35);
-
-            pointer-events: none;
-
-        }
-
-
-        .visitor-counter::before {
-
-            content: "";
-
-            width: 5px;
-
-            height: 5px;
-
-            border-radius: 50%;
-
-            background:
-                rgba(255,255,255,0.55);
-
-            box-shadow:
-                0 0 8px rgba(255,255,255,0.35);
-
-        }
-
-
-        .visitor-counter strong {
-
-            font-weight: 400;
-
-            color:
-                rgba(255,255,255,0.65);
-
-        }
-
-
-        /* =====================================================
-           MOBILE
-           ===================================================== */
-
-        @media (max-width: 800px) {
-
-
-            /* ---------------------------------------------
-               Smaller right-side video
-               --------------------------------------------- */
-
-            .hero-video {
-
-                top: 12vh !important;
-
-                right: -20vw !important;
-
-                width: 85vw !important;
-
-                height: 55vh !important;
-
-                opacity: 0.25;
-
-                -webkit-mask-image:
-                    linear-gradient(
-                        to left,
-                        #000 30%,
-                        transparent 100%
-                    );
-
-                mask-image:
-                    linear-gradient(
-                        to left,
-                        #000 30%,
-                        transparent 100%
-                    );
-
-            }
-
-
-            /* ---------------------------------------------
-               SoundCloud
-               --------------------------------------------- */
-
-            .youtube-player {
-
-                position: relative !important;
-
-                top: auto !important;
-
-                right: -45px !important;
-
-                width: calc(100% - 10px) !important;
-
-                height: 150px !important;
-
-                margin:
-                    45px
-                    0
-                    0
-                    auto;
-
-                transform: none;
-
-                opacity: 0.42;
-
-            }
-
-
-            .youtube-player:hover {
-
-                right: -15px !important;
-
-                transform: none;
-
-                opacity: 0.65;
-
-            }
-
-
-            .youtube-label {
-
-                height: 30px;
-
-                font-size: 7px;
-
-            }
-
-
-            .youtube-frame {
-
-                height: 120px !important;
-
-            }
-
-
-            .youtube-frame iframe {
-
-                height: 145px !important;
-
-                top: -18px;
-
-            }
-
-
-            .soundcloud-svg {
-
-                display: none;
-
-            }
-
-
-            /* ---------------------------------------------
-               Visitor counter
-               --------------------------------------------- */
-
-            .visitor-counter {
-
-                right: 16px;
-
-                bottom: 15px;
-
-                font-size: 7px;
-
-            }
-
-        }
-
-
-        /* =====================================================
-           VERY SMALL PHONES
-           ===================================================== */
-
-        @media (max-width: 480px) {
-
-            .hero-video {
-
-                right: -30vw !important;
-
-                width: 100vw !important;
-
-                opacity: 0.2;
-
-            }
-
-
-            .youtube-player {
-
-                right: -55px !important;
-
-                width: calc(100% + 15px) !important;
-
-                opacity: 0.35;
-
-            }
-
-
-            .visitor-counter {
-
-                right: 12px;
-
-                bottom: 12px;
-
-            }
-
-        }
-
-    </style>
-
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 
 <body>
 
-
 <main class="page">
 
+    <!-- =========================================
+         YOUTUBE VISUAL
+         ========================================= -->
 
-    <!-- =====================================================
-         VIDEO — RIGHT SIDE VISUAL LAYER
-         ===================================================== -->
-
-    <div
-        class="hero-video"
-        aria-hidden="true"
-    >
+    <div class="hero-video" aria-hidden="true">
 
         <iframe
             src="https://www.youtube.com/embed/6CnGqwbpaNg?autoplay=1&mute=1&loop=1&playlist=6CnGqwbpaNg&controls=0&rel=0&modestbranding=1"
@@ -909,23 +49,18 @@
     </div>
 
 
-    <!-- =====================================================
-         GLOBAL VIDEO DARKENING
-         ===================================================== -->
+    <!-- =========================================
+         VISUAL OVERLAYS
+         ========================================= -->
 
     <div class="video-overlay"></div>
-
-
-    <!-- =====================================================
-         NOISE
-         ===================================================== -->
 
     <div class="noise"></div>
 
 
-    <!-- =====================================================
+    <!-- =========================================
          MAIN CONTENT
-         ===================================================== -->
+         ========================================= -->
 
     <section class="content">
 
@@ -935,18 +70,12 @@
         <div class="topline">
 
             <div>
-
                 <span class="dot"></span>
-
                 Yoni Records / 2026
-
             </div>
 
-
             <div>
-
                 Psytrance · Dark Psy · Live Act
-
             </div>
 
         </div>
@@ -955,233 +84,96 @@
         <!-- KICKER -->
 
         <div class="kicker">
-
             Psytrance · Twilight · Live Act
-
         </div>
 
 
         <!-- ARTIST NAME -->
 
         <h1>
-
             Frenetic
-
             <br>
-
             <span>Frequency</span>
-
         </h1>
 
 
-        <!-- INTRODUCTION -->
+        <!-- INTRO -->
 
         <p class="sub">
-
             A new experience is being assembled.
-
             Dark psychedelic frequencies.
-
             Relentless pressure.
-
             Controlled chaos.
 
             <strong>Coming soon.</strong>
-
         </p>
 
 
-        <!-- =================================================
+        <!-- =========================================
              SOUNDCLOUD
-             ================================================= -->
+             ========================================= -->
 
-        <div class="youtube-player">
+        <div class="soundcloud-player">
 
-
-            <!-- SVG GLITCH / WAVEFORM -->
-
-            <svg
-                class="soundcloud-svg"
-                viewBox="0 0 470 240"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-            >
-
-                <line
-                    x1="0"
-                    y1="35"
-                    x2="470"
-                    y2="35"
-                />
-
-                <line
-                    x1="45"
-                    y1="65"
-                    x2="420"
-                    y2="65"
-                />
-
-                <line
-                    x1="0"
-                    y1="95"
-                    x2="470"
-                    y2="95"
-                />
-
-                <line
-                    x1="80"
-                    y1="125"
-                    x2="440"
-                    y2="125"
-                />
-
-                <line
-                    x1="20"
-                    y1="155"
-                    x2="470"
-                    y2="155"
-                />
-
-                <line
-                    x1="110"
-                    y1="185"
-                    x2="390"
-                    y2="185"
-                />
-
-
-                <!-- Abstract waveform -->
-
-                <polyline
-                    points="
-                    0,120
-                    18,120
-                    24,105
-                    30,135
-                    40,115
-                    48,128
-                    60,98
-                    70,140
-                    82,110
-                    92,125
-                    105,88
-                    118,145
-                    132,112
-                    146,130
-                    160,92
-                    175,138
-                    188,116
-                    204,126
-                    220,100
-                    235,142
-                    250,110
-                    268,130
-                    285,92
-                    300,145
-                    315,108
-                    332,128
-                    350,98
-                    365,140
-                    382,112
-                    400,126
-                    418,102
-                    435,136
-                    452,115
-                    470,120
-                    "
-                />
-
-            </svg>
-
-
-            <!-- GLITCH BARS -->
-
-            <div
-                class="soundcloud-glitch-bars"
-                aria-hidden="true">
-            </div>
-
-
-            <!-- LABEL -->
-
-            <div class="youtube-label">
-
+            <div class="soundcloud-label">
                 Official SoundCloud
-
             </div>
 
-
-            <!-- PLAYER FRAME -->
-
-            <div class="youtube-frame">
+            <div class="soundcloud-frame">
 
                 <iframe
+                    width="100%"
+                    height="450"
                     scrolling="no"
                     frameborder="no"
-                    allow="autoplay; encrypted-media"
-                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2296428090&color=%23000000&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
-                    title="Frenetic Frequency SoundCloud Releases">
+                    allow="autoplay"
+                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2296428090&color=%23000000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
                 </iframe>
 
             </div>
 
-
         </div>
 
 
-        <!-- =================================================
+        <!-- =========================================
              ARTIST BIO
-             ================================================= -->
+             ========================================= -->
 
         <div class="bio">
 
-
             <span class="bio-label">
-
                 Artist Bio
-
             </span>
 
-
             <p>
-
                 Jose, known as Frenetic Frequency, is a dark night
                 psychedelic trance live act based in Fundão, Portugal.
                 Active in music production since 2006, his sound is forged
                 around relentless high-frequency pressure, aggressive rhythmic
                 structures, and deep psychedelic atmospheres crafted for
                 late-night dancefloors.
-
             </p>
 
-
             <p>
-
                 Blending controlled chaos with precise sound design,
                 Frenetic Frequency creates intense, mind-altering sonic journeys
                 that dissolve perception and drive listeners into heightened
                 states of consciousness.
-
             </p>
-
 
             <p>
-
                 His performances are immersive, powerful, and uncompromising,
                 exploring the darker edges of modern psychedelic trance.
-
             </p>
-
 
         </div>
 
 
-        <!-- =================================================
-             BUTTONS
-             ================================================= -->
+        <!-- =========================================
+             CTA BUTTONS
+             ========================================= -->
 
         <div class="cta-row">
-
 
             <a
                 class="btn primary"
@@ -1189,9 +181,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
             >
-
                 Yoni Records →
-
             </a>
 
 
@@ -1201,9 +191,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
             >
-
                 Follow the Project →
-
             </a>
 
 
@@ -1213,152 +201,108 @@
                 target="_blank"
                 rel="noopener noreferrer"
             >
-
                 YouTube →
-
             </a>
-
 
         </div>
 
 
-        <!-- =================================================
+        <!-- =========================================
              ARTIST INFORMATION
-             ================================================= -->
+             ========================================= -->
 
         <div class="meta">
 
-
             <div>
-
                 <small>Based in</small>
-
-                <strong>
-                    Fundão · Portugal
-                </strong>
-
+                <strong>Fundão · Portugal</strong>
             </div>
 
 
             <div>
-
                 <small>Active since</small>
-
-                <strong>
-                    2006
-                </strong>
-
+                <strong>2006</strong>
             </div>
 
 
             <div>
-
                 <small>Contact</small>
-
-                <strong>
-                    freneticfrequency@gmail.com
-                </strong>
-
+                <strong>freneticfrequency@gmail.com</strong>
             </div>
-
 
         </div>
-
 
     </section>
 
 
-    <!-- =====================================================
-         FOOTER / BOTTOM TEXT
-         ===================================================== -->
+    <!-- =========================================
+         SCAN TEXT
+         ========================================= -->
 
     <div class="scan">
-
         COMING SOON / FRENETIC FREQUENCY
-
     </div>
 
 
-    <!-- =====================================================
-         VISITOR COUNTER
-         ===================================================== -->
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
 
-    <div
-        class="visitor-counter"
-        aria-label="Visitor counter"
-    >
+    <footer class="site-footer">
 
-        <span>
-            VISITORS //
-        </span>
+        <div class="footer-line"></div>
 
-        <strong id="visitorCount">
-            000000
-        </strong>
+        <div class="footer-content">
 
-    </div>
+            <span>
+                FRENETIC FREQUENCY
+            </span>
 
+            <span>
+                © 2026
+            </span>
+
+            <span class="visitor-counter">
+                VISITORS:
+                <strong id="visitorCount">000000</strong>
+            </span>
+
+        </div>
+
+    </footer>
 
 </main>
 
 
-<!-- =========================================================
-     LOCAL VISITOR COUNTER
-     
-     NOTE:
-     This counts visits separately in each browser.
-     It is NOT a global website visitor counter.
-     ========================================================= -->
+<!-- =========================================
+     VISITOR COUNTER
+     ========================================= -->
 
 <script>
+(function () {
 
-    (function () {
+    const storageKey = "freneticFrequencyVisitorCount";
 
-        const storageKey =
-            "freneticFrequencyVisitorCount";
+    let count = localStorage.getItem(storageKey);
 
+    if (!count) {
+        count = 1;
+    } else {
+        count = parseInt(count, 10) + 1;
+    }
 
-        let count =
-            localStorage.getItem(storageKey);
+    localStorage.setItem(storageKey, count);
 
+    const counter = document.getElementById("visitorCount");
 
-        if (!count) {
+    if (counter) {
+        counter.textContent = String(count).padStart(6, "0");
+    }
 
-            count = 1;
-
-        } else {
-
-            count =
-                parseInt(count, 10) + 1;
-
-        }
-
-
-        localStorage.setItem(
-            storageKey,
-            count
-        );
-
-
-        const counter =
-            document.getElementById(
-                "visitorCount"
-            );
-
-
-        if (counter) {
-
-            counter.textContent =
-                String(count).padStart(6, "0");
-
-        }
-
-    })();
-
+})();
 </script>
 
 
 </body>
-
 </html>
 ```
