@@ -65,9 +65,7 @@
     <section class="content">
 
 
-        <!-- =========================================
-             TOP INFORMATION
-             ========================================= -->
+        <!-- TOP INFORMATION -->
 
         <div class="topline">
 
@@ -83,18 +81,14 @@
         </div>
 
 
-        <!-- =========================================
-             KICKER
-             ========================================= -->
+        <!-- KICKER -->
 
         <div class="kicker">
             Psytrance · Twilight · Live Act
         </div>
 
 
-        <!-- =========================================
-             ARTIST NAME
-             ========================================= -->
+        <!-- ARTIST NAME -->
 
         <h1>
             Frenetic
@@ -103,9 +97,7 @@
         </h1>
 
 
-        <!-- =========================================
-             INTRODUCTION
-             ========================================= -->
+        <!-- INTRODUCTION -->
 
         <p class="sub">
             A new experience is being assembled.
@@ -117,13 +109,13 @@
 
 
         <!-- =========================================
-             SOUNDCLOUD PLAYER
+             SOUNDCLOUD
              ========================================= -->
 
         <div class="soundcloud-widget">
 
             <iframe
-                width="50%"
+                width="100%"
                 height="350"
                 scrolling="no"
                 frameborder="no"
@@ -159,19 +151,16 @@
 
 
         <!-- =========================================
-             SPOTIFY PLAYER
+             SPOTIFY
              ========================================= -->
 
         <div class="spotify-widget">
 
             <iframe
-                data-testid="embed-iframe"
-                style="border-radius:12px"
                 src="https://open.spotify.com/embed/playlist/7pUfWK5onlWYk31l54Xb3r?utm_source=generator&theme=0&si=a728f8c496c14c9d"
                 width="100%"
                 height="352"
                 frameborder="0"
-                allowfullscreen=""
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 loading="lazy">
             </iframe>
@@ -328,13 +317,9 @@
     let count = localStorage.getItem(storageKey);
 
     if (!count) {
-
         count = 1;
-
     } else {
-
         count = parseInt(count, 10) + 1;
-
     }
 
     localStorage.setItem(storageKey, count);
@@ -342,10 +327,7 @@
     const counter = document.getElementById("visitorCount");
 
     if (counter) {
-
-        counter.textContent =
-            String(count).padStart(6, "0");
-
+        counter.textContent = String(count).padStart(6, "0");
     }
 
 })();
