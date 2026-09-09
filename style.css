@@ -79,7 +79,6 @@ a {
 .video-overlay {
     position: absolute;
     inset: 0;
-
     z-index: 1;
     pointer-events: none;
 
@@ -105,7 +104,7 @@ a {
 
 
 /* =========================================
-   GREEN ATMOSPHERE
+   GREEN ATMOSPHERIC GLOW
    ========================================= */
 
 .page::before {
@@ -127,7 +126,7 @@ a {
 
 
 /* =========================================
-   NOISE / GRAIN
+   NOISE
    ========================================= */
 
 .noise {
@@ -135,6 +134,7 @@ a {
     inset: -50%;
 
     z-index: 3;
+
     pointer-events: none;
 
     opacity: 0.045;
@@ -166,6 +166,7 @@ a {
     100% {
         transform: translate(-2%, -1%);
     }
+
 }
 
 
@@ -175,7 +176,6 @@ a {
 
 .content {
     position: relative;
-
     z-index: 10;
 
     width: min(1200px, 92vw);
@@ -200,11 +200,9 @@ a {
     margin-bottom: 7vh;
 
     font-family: "Space Mono", monospace;
-
     font-size: 11px;
 
     letter-spacing: 0.22em;
-
     text-transform: uppercase;
 
     color: #aaa;
@@ -253,7 +251,7 @@ a {
 
 
 /* =========================================
-   MAIN TITLE
+   ARTIST NAME
    ========================================= */
 
 h1 {
@@ -283,7 +281,7 @@ h1 span {
 
 
 /* =========================================
-   INTRO TEXT
+   INTRODUCTION
    ========================================= */
 
 .sub {
@@ -314,6 +312,8 @@ h1 span {
 
 /* =========================================
    SOUNDCLOUD
+   ORIGINAL SIZE
+   525px × 350px
    ========================================= */
 
 .soundcloud-widget {
@@ -371,7 +371,8 @@ h1 span {
 
 /* =========================================
    SPOTIFY
-   SAME SIZE AS SOUNDCLOUD
+   EXACTLY SAME SIZE AS SOUNDCLOUD
+   525px × 350px
    ========================================= */
 
 .spotify-widget {
@@ -394,7 +395,7 @@ h1 span {
 
 
 /* =========================================
-   ARTIST BIO
+   BIO
    ========================================= */
 
 .bio {
@@ -491,7 +492,7 @@ h1 span {
 
 
 /* =========================================
-   ARTIST META INFORMATION
+   ARTIST META
    ========================================= */
 
 .meta {
@@ -656,6 +657,7 @@ h1 span {
                 rgba(5, 5, 5, 0.92)
             );
     }
+
 }
 
 
@@ -827,4 +829,5 @@ h1 span {
     .visitor-counter {
         margin-left: auto;
     }
+
 }
