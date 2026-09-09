@@ -1,9 +1,15 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Frenetic Frequency — Official Website</title>
 
@@ -12,31 +18,540 @@
         content="Frenetic Frequency — Psytrance / Dark Psy Live Act. Official website."
     >
 
-    <meta name="theme-color" content="#050505">
+    <meta
+        name="theme-color"
+        content="#050505"
+    >
 
-    <!-- Google Fonts -->
+    <!-- =========================================
+         GOOGLE FONTS
+         ========================================= -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
         rel="stylesheet"
     >
 
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="style.css">
+
+    <!-- =========================================
+         MAIN CSS
+         ========================================= -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+
+    <!-- =========================================
+         SOUNDCloud SIDE PANEL
+         ========================================= -->
+
+    <style>
+
+        /* =================================================
+           SOUNDCLOUD — DARK GLITCH SIDE PANEL
+           ================================================= */
+
+        .soundcloud-player {
+
+            position: absolute;
+
+            right: -75px;
+            top: 48%;
+
+            transform: translateY(-50%);
+
+            width: min(390px, 29vw);
+
+            z-index: 3;
+
+            opacity: 0.42;
+
+            filter:
+                grayscale(100%)
+                contrast(1.15);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.035),
+                    rgba(0,0,0,0.72)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.14);
+
+            box-shadow:
+                -20px 0 70px rgba(0,0,0,0.75),
+                inset 0 0 35px rgba(255,255,255,0.025);
+
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+
+            overflow: hidden;
+
+            transition:
+                opacity 0.35s ease,
+                transform 0.35s ease,
+                right 0.35s ease;
+
+            pointer-events: auto;
+        }
+
+
+        /* =================================================
+           SCANLINES
+           ================================================= */
+
+        .soundcloud-player::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: 10;
+
+            pointer-events: none;
+
+            background:
+                repeating-linear-gradient(
+                    to bottom,
+                    transparent 0,
+                    transparent 3px,
+                    rgba(255,255,255,0.025) 4px
+                );
+
+            mix-blend-mode: screen;
+
+            opacity: 0.55;
+        }
+
+
+        /* =================================================
+           GLITCH EDGE
+           ================================================= */
+
+        .soundcloud-player::after {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            right: 0;
+
+            width: 2px;
+            height: 100%;
+
+            z-index: 11;
+
+            pointer-events: none;
+
+            background:
+                repeating-linear-gradient(
+                    to bottom,
+                    transparent 0,
+                    transparent 18px,
+                    rgba(255,255,255,0.45) 19px,
+                    transparent 20px,
+                    transparent 38px
+                );
+
+            opacity: 0.6;
+        }
+
+
+        /* =================================================
+           HOVER
+           ================================================= */
+
+        .soundcloud-player:hover {
+
+            right: -25px;
+
+            opacity: 0.72;
+
+            transform:
+                translateY(-50%)
+                translateX(-4px);
+        }
+
+
+        /* =================================================
+           LABEL
+           ================================================= */
+
+        .soundcloud-label {
+
+            position: relative;
+
+            z-index: 12;
+
+            padding:
+                13px
+                18px
+                7px;
+
+            font-family:
+                "Space Mono",
+                monospace;
+
+            font-size: 8px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            color:
+                rgba(255,255,255,0.65);
+
+            white-space: nowrap;
+
+            opacity: 0.8;
+        }
+
+
+        .soundcloud-label::before {
+
+            content: "///";
+
+            margin-right: 9px;
+
+            color:
+                rgba(255,255,255,0.35);
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =================================================
+           FRAME
+           ================================================= */
+
+        .soundcloud-frame {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 165px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(10,10,10,0.75),
+                    rgba(0,0,0,0.92)
+                );
+
+            border-top:
+                1px solid rgba(255,255,255,0.08);
+
+            box-shadow:
+                inset 0 0 45px rgba(0,0,0,0.8);
+        }
+
+
+        /* =================================================
+           SOUNDCLOUD IFRAME
+           ================================================= */
+
+        .soundcloud-frame iframe {
+
+            display: block;
+
+            width: 100%;
+
+            height: 165px;
+
+            border: 0;
+
+            opacity: 0.72;
+
+            filter:
+                grayscale(100%)
+                contrast(1.1);
+        }
+
+
+        /* =================================================
+           SIDE FADE
+           ================================================= */
+
+        .soundcloud-frame::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.18),
+                    transparent 25%,
+                    transparent 75%,
+                    rgba(0,0,0,0.7)
+                );
+        }
+
+
+        /* =================================================
+           SVG GLITCH DECORATION
+           ================================================= */
+
+        .soundcloud-glitch {
+
+            position: absolute;
+
+            right: 0;
+
+            top: 50%;
+
+            width: 520px;
+
+            height: 240px;
+
+            transform:
+                translateY(-50%);
+
+            z-index: 1;
+
+            pointer-events: none;
+
+            opacity: 0.28;
+        }
+
+
+        .soundcloud-glitch line {
+
+            stroke:
+                rgba(255,255,255,0.45);
+
+            stroke-width: 1;
+        }
+
+
+        /* =================================================
+           VISITOR COUNTER
+           ================================================= */
+
+        .visitor-counter {
+
+            position: fixed;
+
+            right: 28px;
+
+            bottom: 24px;
+
+            z-index: 50;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            font-family:
+                "Space Mono",
+                monospace;
+
+            font-size: 8px;
+
+            letter-spacing: 2px;
+
+            color:
+                rgba(255,255,255,0.38);
+
+            pointer-events: none;
+
+            white-space: nowrap;
+        }
+
+
+        .visitor-counter::before {
+
+            content: "";
+
+            width: 5px;
+
+            height: 5px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,0.55);
+
+            box-shadow:
+                0 0 8px rgba(255,255,255,0.3);
+        }
+
+
+        .visitor-counter strong {
+
+            font-weight: 400;
+
+            color:
+                rgba(255,255,255,0.68);
+        }
+
+
+        /* =================================================
+           TABLET
+           ================================================= */
+
+        @media (max-width: 1000px) {
+
+            .soundcloud-player {
+
+                right: -55px;
+
+                width: 340px;
+
+                opacity: 0.34;
+            }
+
+            .soundcloud-player:hover {
+
+                right: -20px;
+
+                opacity: 0.65;
+            }
+
+        }
+
+
+        /* =================================================
+           MOBILE
+           ================================================= */
+
+        @media (max-width: 800px) {
+
+            .soundcloud-player {
+
+                position: relative;
+
+                right: auto;
+                top: auto;
+
+                transform: none;
+
+                width:
+                    min(100%, 380px);
+
+                margin:
+                    45px
+                    -30px
+                    0
+                    auto;
+
+                opacity: 0.48;
+            }
+
+
+            .soundcloud-player:hover {
+
+                right: auto;
+
+                opacity: 0.65;
+
+                transform: none;
+            }
+
+
+            .soundcloud-label {
+
+                padding:
+                    10px
+                    14px
+                    6px;
+
+                font-size: 8px;
+            }
+
+
+            .soundcloud-frame {
+
+                height: 145px;
+            }
+
+
+            .soundcloud-frame iframe {
+
+                height: 145px;
+            }
+
+
+            .soundcloud-glitch {
+
+                display: none;
+            }
+
+
+            .visitor-counter {
+
+                right: 18px;
+
+                bottom: 16px;
+
+                font-size: 7px;
+            }
+
+        }
+
+
+        /* =================================================
+           VERY SMALL PHONES
+           ================================================= */
+
+        @media (max-width: 480px) {
+
+            .soundcloud-player {
+
+                width:
+                    calc(100% - 15px);
+
+                margin-right: -15px;
+
+                opacity: 0.42;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 
 <body>
 
+
 <main class="page">
 
-    <!-- =========================================
-         YOUTUBE BACKGROUND VIDEO
-         ========================================= -->
 
-    <div class="hero-video" aria-hidden="true">
+    <!-- =================================================
+         YOUTUBE BACKGROUND VIDEO
+         ================================================= -->
+
+    <div
+        class="hero-video"
+        aria-hidden="true"
+    >
 
         <iframe
             src="https://www.youtube.com/embed/6CnGqwbpaNg?autoplay=1&mute=1&loop=1&playlist=6CnGqwbpaNg&controls=0&rel=0&modestbranding=1"
@@ -48,129 +563,221 @@
     </div>
 
 
-    <!-- Visual Effects -->
+    <!-- =================================================
+         VISUAL EFFECTS
+         ================================================= -->
 
     <div class="video-overlay"></div>
 
     <div class="noise"></div>
 
 
-    <!-- =========================================
+    <!-- =================================================
          MAIN CONTENT
-         ========================================= -->
+         ================================================= -->
 
     <section class="content">
 
 
-        <!-- Top Information -->
+        <!-- TOP INFORMATION -->
 
         <div class="topline">
 
             <div>
+
                 <span class="dot"></span>
+
                 Yoni Records / 2026
+
             </div>
+
 
             <div>
+
                 Psytrance · Dark Psy · Live Act
+
             </div>
 
         </div>
 
 
-        <!-- Kicker -->
+        <!-- KICKER -->
 
         <div class="kicker">
+
             Psytrance · Twilight · Live Act
+
         </div>
 
 
-        <!-- Artist Name -->
+        <!-- ARTIST NAME -->
 
         <h1>
+
             Frenetic
+
             <br>
+
             <span>Frequency</span>
+
         </h1>
 
 
-        <!-- Introduction -->
+        <!-- INTRODUCTION -->
 
         <p class="sub">
+
             A new experience is being assembled.
+
             Dark psychedelic frequencies.
+
             Relentless pressure.
+
             Controlled chaos.
+
             <strong>Coming soon.</strong>
+
         </p>
 
 
-        <!-- =========================================
+        <!-- =================================================
              SOUNDCLOUD PLAYER
-             ========================================= -->
+             ================================================= -->
 
-        <div class="youtube-player">
+        <div class="soundcloud-player">
 
-            <div class="youtube-label">
+
+            <!-- SVG GLITCH ELEMENT -->
+
+            <svg
+                class="soundcloud-glitch"
+                viewBox="0 0 520 240"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+            >
+
+                <line
+                    x1="0"
+                    y1="35"
+                    x2="520"
+                    y2="35"
+                />
+
+                <line
+                    x1="80"
+                    y1="72"
+                    x2="450"
+                    y2="72"
+                />
+
+                <line
+                    x1="20"
+                    y1="105"
+                    x2="500"
+                    y2="105"
+                />
+
+                <line
+                    x1="110"
+                    y1="140"
+                    x2="390"
+                    y2="140"
+                />
+
+                <line
+                    x1="0"
+                    y1="178"
+                    x2="470"
+                    y2="178"
+                />
+
+                <line
+                    x1="150"
+                    y1="210"
+                    x2="520"
+                    y2="210"
+                />
+
+            </svg>
+
+
+            <!-- LABEL -->
+
+            <div class="soundcloud-label">
+
                 Official SoundCloud
+
             </div>
 
-            <div class="youtube-frame">
+
+            <!-- PLAYER -->
+
+            <div class="soundcloud-frame">
 
                 <iframe
-                    width="100%"
-                    height="450"
                     scrolling="no"
                     frameborder="no"
-                    allow="autoplay"
-                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2296428090&color=%23272929&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+                    allow="autoplay; encrypted-media"
+                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2296428090&color=%23000000&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                    title="Frenetic Frequency SoundCloud Releases">
                 </iframe>
 
             </div>
 
+
         </div>
 
 
-        <!-- =========================================
+        <!-- =================================================
              ARTIST BIO
-             ========================================= -->
+             ================================================= -->
 
         <div class="bio">
 
+
             <span class="bio-label">
+
                 Artist Bio
+
             </span>
 
 
             <p>
+
                 Jose, known as Frenetic Frequency, is a dark night
                 psychedelic trance live act based in Fundão, Portugal.
                 Active in music production since 2006, his sound is forged
                 around relentless high-frequency pressure, aggressive rhythmic
                 structures, and deep psychedelic atmospheres crafted for
                 late-night dancefloors.
+
             </p>
 
 
             <p>
+
                 Blending controlled chaos with precise sound design,
                 Frenetic Frequency creates intense, mind-altering sonic journeys
                 that dissolve perception and drive listeners into heightened
                 states of consciousness.
+
             </p>
 
 
             <p>
+
                 His performances are immersive, powerful, and uncompromising,
                 exploring the darker edges of modern psychedelic trance.
+
             </p>
+
 
         </div>
 
 
-        <!-- =========================================
+        <!-- =================================================
              BUTTONS
-             ========================================= -->
+             ================================================= -->
 
         <div class="cta-row">
 
@@ -181,7 +788,9 @@
                 target="_blank"
                 rel="noopener noreferrer"
             >
+
                 Yoni Records →
+
             </a>
 
 
@@ -191,7 +800,9 @@
                 target="_blank"
                 rel="noopener noreferrer"
             >
+
                 Follow the Project →
+
             </a>
 
 
@@ -201,52 +812,147 @@
                 target="_blank"
                 rel="noopener noreferrer"
             >
+
                 YouTube →
+
             </a>
+
 
         </div>
 
 
-        <!-- =========================================
+        <!-- =================================================
              ARTIST INFORMATION
-             ========================================= -->
+             ================================================= -->
 
         <div class="meta">
 
 
             <div>
+
                 <small>Based in</small>
-                <strong>Fundão · Portugal</strong>
+
+                <strong>
+                    Fundão · Portugal
+                </strong>
+
             </div>
 
 
             <div>
+
                 <small>Active since</small>
-                <strong>2006</strong>
+
+                <strong>
+                    2006
+                </strong>
+
             </div>
 
 
             <div>
+
                 <small>Contact</small>
-                <strong>freneticfrequency@gmail.com</strong>
+
+                <strong>
+                    freneticfrequency@gmail.com
+                </strong>
+
             </div>
 
 
         </div>
 
+
     </section>
 
 
-    <!-- =========================================
+    <!-- =================================================
          BOTTOM TEXT
-         ========================================= -->
+         ================================================= -->
 
     <div class="scan">
+
         COMING SOON / FRENETIC FREQUENCY
+
     </div>
 
+
+    <!-- =================================================
+         VISITOR COUNTER
+         ================================================= -->
+
+    <div
+        class="visitor-counter"
+        aria-label="Visitor counter"
+    >
+
+        <span>
+            VISITORS //
+        </span>
+
+        <strong id="visitorCount">
+            000000
+        </strong>
+
+    </div>
+
+
 </main>
+
+
+<!-- =====================================================
+     VISITOR COUNTER SCRIPT
+     ===================================================== -->
+
+<script>
+
+    (function () {
+
+        const storageKey =
+            "freneticFrequencyVisitorCount";
+
+        let count =
+            localStorage.getItem(storageKey);
+
+
+        if (!count) {
+
+            count = 1;
+
+        } else {
+
+            count =
+                parseInt(count, 10) + 1;
+
+        }
+
+
+        localStorage.setItem(
+            storageKey,
+            count
+        );
+
+
+        const counter =
+            document.getElementById(
+                "visitorCount"
+            );
+
+
+        if (counter) {
+
+            counter.textContent =
+                String(count).padStart(6, "0");
+
+        }
+
+    })();
+
+</script>
+
 
 </body>
 
 </html>
+```
