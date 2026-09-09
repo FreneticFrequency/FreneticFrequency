@@ -1,17 +1,23 @@
+/* =========================================================
+   FRENETIC FREQUENCY
+   MAIN STYLE
+   ========================================================= */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-html, body {
+html,
+body {
     min-height: 100%;
     background: #050505;
     color: #fff;
 }
 
 body {
-    font-family: 'Barlow Condensed', Arial, sans-serif;
+    font-family: "Barlow Condensed", Arial, sans-serif;
     overflow-x: hidden;
 }
 
@@ -20,362 +26,1358 @@ a {
     text-decoration: none;
 }
 
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
 .page {
     position: relative;
     min-height: 100vh;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     overflow: hidden;
+
     background: #050505;
 }
 
-/* YouTube replaces the old JPEG completely */
+
+/* =========================================================
+   RIGHT-SIDE VIDEO
+   ========================================================= */
+
 .hero-video {
-    position: absolute;
-    inset: 0;
+    position: fixed;
+
+    top: 7vh;
+    right: -8vw;
+
+    width: 58vw;
+    height: 86vh;
+
     z-index: 0;
+
     overflow: hidden;
-    pointer-events: none;
-}
 
-.hero-video iframe {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100vw;
-    height: 56.25vw;
-    min-width: 177.78vh;
-    min-height: 100vh;
-    transform: translate(-50%, -50%) scale(1.15);
-    border: 0;
-    opacity: .68;
-}
-
-.video-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
     pointer-events: none;
-    background:
+
+    background: #050505;
+
+    opacity: 0.42;
+
+    /* Fade video into black */
+    -webkit-mask-image:
         linear-gradient(
             90deg,
-            #050505 0%,
-            rgba(5,5,5,.98) 10%,
-            rgba(5,5,5,.88) 25%,
-            rgba(5,5,5,.48) 48%,
-            rgba(5,5,5,.20) 72%,
-            rgba(5,5,5,.52) 100%
-        ),
+            transparent 0%,
+            rgba(0, 0, 0, 0.2) 15%,
+            #000 42%,
+            #000 72%,
+            rgba(0, 0, 0, 0.45) 90%,
+            transparent 100%
+        );
+
+    mask-image:
         linear-gradient(
-            180deg,
-            rgba(5,5,5,.60) 0%,
-            transparent 30%,
-            transparent 65%,
-            rgba(5,5,5,.95) 100%
-        ),
-        radial-gradient(
-            circle at 72% 45%,
-            rgba(98,255,0,.18),
-            transparent 35%
+            90deg,
+            transparent 0%,
+            rgba(0, 0, 0, 0.2) 15%,
+            #000 42%,
+            #000 72%,
+            rgba(0, 0, 0, 0.45) 90%,
+            transparent 100%
         );
 }
 
-.page::before {
-    content: "";
+
+/* Video iframe */
+
+.hero-video iframe {
     position: absolute;
-    inset: 0;
-    z-index: 2;
-    pointer-events: none;
-    background:
-        radial-gradient(circle at 75% 45%, rgba(98,255,0,.08), transparent 32%),
-        linear-gradient(90deg, rgba(0,0,0,.15), transparent 55%, rgba(0,0,0,.22));
+
+    top: 50%;
+    left: 50%;
+
+    width: 125%;
+    height: 125%;
+
+    min-width: 0;
+    min-height: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1.08);
+
+    border: 0;
+
+    opacity: 0.78;
+
+    filter:
+        grayscale(100%)
+        contrast(1.18)
+        brightness(0.62);
 }
 
-.noise {
+
+/* =========================================================
+   VIDEO BLENDING
+   ========================================================= */
+
+.hero-video::before {
+    content: "";
+
     position: absolute;
-    inset: -50%;
-    opacity: .07;
-    z-index: 3;
+
+    inset: 0;
+
+    z-index: 5;
+
     pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
-    animation: grain .2s steps(2) infinite;
+
+    background:
+
+        /* Left fade into the typography */
+        linear-gradient(
+            90deg,
+            #050505 0%,
+            rgba(5, 5, 5, 0.98) 13%,
+            rgba(5, 5, 5, 0.72) 29%,
+            rgba(5, 5, 5, 0.18) 53%,
+            transparent 72%
+        ),
+
+        /* Top fade */
+        linear-gradient(
+            180deg,
+            #050505 0%,
+            rgba(5, 5, 5, 0.4) 17%,
+            transparent 34%,
+            transparent 78%,
+            #050505 100%
+        );
+}
+
+
+/* Extra atmosphere */
+
+.hero-video::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 6;
+
+    pointer-events: none;
+
+    background:
+
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 4px,
+            rgba(255, 255, 255, 0.025) 5px
+        ),
+
+        radial-gradient(
+            circle at 65% 50%,
+            rgba(98, 255, 0, 0.09),
+            transparent 42%
+        );
+
+    mix-blend-mode: screen;
+
+    opacity: 0.5;
+}
+
+
+/* =========================================================
+   GLOBAL VIDEO OVERLAY
+   ========================================================= */
+
+.video-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+
+        radial-gradient(
+            ellipse at 78% 45%,
+            transparent 0%,
+            rgba(5, 5, 5, 0.18) 35%,
+            rgba(5, 5, 5, 0.7) 70%,
+            #050505 100%
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(5, 5, 5, 0.25),
+            transparent 58%,
+            rgba(5, 5, 5, 0.38)
+        );
+}
+
+
+/* =========================================================
+   GREEN ATMOSPHERIC GLOW
+   ========================================================= */
+
+.page::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 3;
+
+    pointer-events: none;
+
+    background:
+
+        radial-gradient(
+            circle at 78% 48%,
+            rgba(98, 255, 0, 0.075),
+            transparent 27%
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.18),
+            transparent 55%,
+            rgba(0, 0, 0, 0.3)
+        );
+}
+
+
+/* =========================================================
+   NOISE
+   ========================================================= */
+
+.noise {
+    position: fixed;
+
+    inset: -50%;
+
+    z-index: 4;
+
+    pointer-events: none;
+
+    opacity: 0.07;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+
+    animation:
+        grain 0.2s steps(2) infinite;
 }
 
 @keyframes grain {
-    0% { transform: translate(0,0); }
-    25% { transform: translate(2%,-1%); }
-    50% { transform: translate(-1%,2%); }
-    75% { transform: translate(1%,1%); }
-    100% { transform: translate(-2%,-1%); }
+
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(2%, -1%);
+    }
+
+    50% {
+        transform: translate(-1%, 2%);
+    }
+
+    75% {
+        transform: translate(1%, 1%);
+    }
+
+    100% {
+        transform: translate(-2%, -1%);
+    }
 }
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
 
 .content {
     position: relative;
+
     z-index: 10;
+
     width: min(1200px, 92vw);
+
     padding: 7vh 0;
 }
 
+
+/* =========================================================
+   TOP LINE
+   ========================================================= */
+
 .topline {
     display: flex;
+
     justify-content: space-between;
     align-items: center;
+
     margin-bottom: 7vh;
-    font-family: 'Space Mono', monospace;
+
+    font-family:
+        "Space Mono",
+        monospace;
+
     font-size: 11px;
-    letter-spacing: .22em;
+
+    letter-spacing: 0.22em;
+
     text-transform: uppercase;
+
     color: #aaa;
 }
 
 .dot {
     display: inline-block;
+
     width: 8px;
     height: 8px;
+
     background: #62ff00;
+
     border-radius: 50%;
+
     margin-right: 9px;
-    box-shadow: 0 0 15px #62ff00;
+
+    box-shadow:
+        0 0 15px #62ff00;
 }
+
+
+/* =========================================================
+   KICKER
+   ========================================================= */
 
 .kicker {
     color: #62ff00;
+
     font-weight: 700;
-    letter-spacing: .28em;
-    font-size: clamp(13px, 1.5vw, 18px);
+
+    letter-spacing: 0.28em;
+
+    font-size:
+        clamp(13px, 1.5vw, 18px);
+
     text-transform: uppercase;
+
     margin-bottom: 12px;
 }
 
+
+/* =========================================================
+   MAIN TITLE
+   ========================================================= */
+
 h1 {
-    font-size: clamp(68px, 11vw, 155px);
-    line-height: .78;
+    position: relative;
+
+    font-size:
+        clamp(68px, 11vw, 155px);
+
+    line-height: 0.78;
+
     font-weight: 900;
+
     text-transform: uppercase;
-    letter-spacing: -.045em;
+
+    letter-spacing: -0.045em;
+
     max-width: 900px;
-    text-shadow: 0 4px 30px rgba(0,0,0,.75);
+
+    text-shadow:
+        0 4px 30px rgba(0, 0, 0, 0.9),
+
+        0 0 80px rgba(0, 0, 0, 0.65);
+
+    z-index: 12;
 }
 
 h1 span {
     display: block;
-    -webkit-text-stroke: 1px #fff;
+
+    -webkit-text-stroke:
+        1px #fff;
+
     color: transparent;
 }
 
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
 .sub {
     margin-top: 32px;
+
     max-width: 590px;
-    font-size: clamp(18px, 2vw, 27px);
+
+    font-size:
+        clamp(18px, 2vw, 27px);
+
     line-height: 1.05;
+
     text-transform: uppercase;
-    letter-spacing: .035em;
-    text-shadow: 0 2px 15px rgba(0,0,0,.8);
+
+    letter-spacing: 0.035em;
+
+    text-shadow:
+        0 2px 15px rgba(0, 0, 0, 0.9);
+
+    position: relative;
+
+    z-index: 12;
 }
 
 .sub strong {
     display: block;
+
     margin-top: 10px;
+
     color: #62ff00;
 }
+
+
+/* =========================================================
+   SOUNDCLOUD — DARK GLITCH PANEL
+   ========================================================= */
 
 .youtube-player {
-    margin-top: 30px;
-    width: min(700px, 100%);
-    border: 1px solid #333;
-    background: rgba(5,5,5,.82);
-    box-shadow: 0 0 25px rgba(98,255,0,.08);
+
+    position: fixed;
+
+    top: 52%;
+
+    right: -210px;
+
+    width: 455px;
+
+    height: 205px;
+
+    z-index: 25;
+
+    overflow: hidden;
+
+    transform:
+        translateY(-50%)
+        rotate(-1.5deg);
+
+    opacity: 0.32;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(30, 30, 30, 0.35),
+            rgba(0, 0, 0, 0.88)
+        );
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+
+        -35px 0 80px rgba(0, 0, 0, 0.95),
+
+        inset 0 0 50px rgba(0, 0, 0, 0.9),
+
+        0 0 35px rgba(98, 255, 0, 0.025);
+
+    backdrop-filter:
+        blur(8px);
+
+    -webkit-backdrop-filter:
+        blur(8px);
+
+    filter:
+        grayscale(100%)
+        contrast(1.2);
+
+    transition:
+        right 0.45s ease,
+        opacity 0.4s ease,
+        transform 0.45s ease;
 }
+
+
+/* Move into view on hover */
+
+.youtube-player:hover {
+
+    right: -65px;
+
+    opacity: 0.62;
+
+    transform:
+        translateY(-50%)
+        rotate(0deg);
+}
+
+
+/* =========================================================
+   SOUNDCLOUD LABEL
+   ========================================================= */
 
 .youtube-label {
-    padding: 10px 14px;
-    color: #62ff00;
-    font-family: 'Space Mono', monospace;
-    font-size: 9px;
-    letter-spacing: .2em;
+
+    position: relative;
+
+    z-index: 30;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding-left: 18px;
+
+    font-family:
+        "Space Mono",
+        monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
     text-transform: uppercase;
-    border-bottom: 1px solid #333;
+
+    color:
+        rgba(255, 255, 255, 0.6);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.045),
+            transparent
+        );
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.08);
 }
+
+.youtube-label::before {
+
+    content: "///";
+
+    margin-right: 10px;
+
+    color:
+        rgba(255, 255, 255, 0.3);
+}
+
+
+/* =========================================================
+   SOUNDCLOUD FRAME
+   ========================================================= */
 
 .youtube-frame {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-}
 
-.youtube-frame iframe {
-    position: absolute;
-    inset: 0;
+    position: relative;
+
     width: 100%;
-    height: 100%;
+
+    height: 171px;
+
+    overflow: hidden;
+
+    background: #050505;
+
     border: 0;
 }
 
+
+/* Actual iframe */
+
+.youtube-frame iframe {
+
+    position: absolute;
+
+    top: -22px;
+
+    left: -15px;
+
+    width:
+        calc(100% + 30px);
+
+    height: 195px;
+
+    border: 0;
+
+    opacity: 0.43;
+
+    filter:
+        grayscale(100%)
+        contrast(1.3)
+        brightness(0.55);
+}
+
+
+/* Dark mask over native SoundCloud interface */
+
+.youtube-frame::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.82),
+            rgba(0, 0, 0, 0.18) 40%,
+            rgba(0, 0, 0, 0.75) 100%
+        ),
+
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.5),
+            transparent 30%,
+            rgba(0, 0, 0, 0.8) 100%
+        );
+}
+
+
+/* Scanlines */
+
+.youtube-frame::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 6;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 4px,
+            rgba(255, 255, 255, 0.035) 5px
+        );
+
+    mix-blend-mode: screen;
+
+    opacity: 0.7;
+}
+
+
+/* =========================================================
+   SVG GLITCH DECORATION
+   ========================================================= */
+
+.soundcloud-svg {
+
+    position: absolute;
+
+    right: 15px;
+
+    top: 50%;
+
+    width: 470px;
+
+    height: 190px;
+
+    transform:
+        translateY(-45%);
+
+    z-index: 15;
+
+    pointer-events: none;
+
+    opacity: 0.2;
+}
+
+.soundcloud-svg line {
+
+    stroke:
+        rgba(255, 255, 255, 0.7);
+
+    stroke-width: 1;
+}
+
+.soundcloud-svg polyline {
+
+    fill: none;
+
+    stroke:
+        rgba(98, 255, 0, 0.7);
+
+    stroke-width: 1;
+}
+
+
+/* =========================================================
+   GLITCH BARS
+   ========================================================= */
+
+.soundcloud-glitch-bars {
+
+    position: absolute;
+
+    top: 35px;
+
+    right: 0;
+
+    width: 100%;
+
+    height: 120px;
+
+    z-index: 18;
+
+    pointer-events: none;
+
+    opacity: 0.4;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            transparent 52%,
+            rgba(255, 255, 255, 0.08) 52.3%,
+            transparent 53%
+        ),
+
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            transparent 69%,
+            rgba(98, 255, 0, 0.08) 69.2%,
+            transparent 70%
+        ),
+
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            transparent 82%,
+            rgba(255, 255, 255, 0.1) 82.2%,
+            transparent 83%
+        );
+
+    animation:
+        glitchShift 4s infinite steps(2);
+}
+
+@keyframes glitchShift {
+
+    0%,
+    90%,
+    100% {
+        transform: translateX(0);
+        opacity: 0.25;
+    }
+
+    92% {
+        transform: translateX(-14px);
+        opacity: 0.65;
+    }
+
+    94% {
+        transform: translateX(9px);
+        opacity: 0.35;
+    }
+
+    96% {
+        transform: translateX(-5px);
+        opacity: 0.55;
+    }
+}
+
+
+/* =========================================================
+   BIO
+   ========================================================= */
+
 .bio {
+
     margin-top: 28px;
+
     max-width: 850px;
+
     color: #aaa;
-    font-family: 'Space Mono', monospace;
+
+    font-family:
+        "Space Mono",
+        monospace;
+
     font-size: 11px;
+
     line-height: 1.7;
-    letter-spacing: .01em;
-    text-shadow: 0 2px 10px rgba(0,0,0,.8);
+
+    letter-spacing: 0.01em;
+
+    text-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.8);
+
+    position: relative;
+
+    z-index: 12;
 }
 
 .bio-label {
+
     display: block;
+
     margin-bottom: 7px;
+
     color: #62ff00;
+
     font-size: 10px;
+
     font-weight: 700;
-    letter-spacing: .2em;
+
+    letter-spacing: 0.2em;
+
     text-transform: uppercase;
 }
 
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
 .cta-row {
+
     display: flex;
+
     gap: 14px;
+
     flex-wrap: wrap;
+
     margin-top: 38px;
+
+    position: relative;
+
+    z-index: 15;
 }
 
 .btn {
+
     display: inline-flex;
+
     align-items: center;
+
     justify-content: center;
+
     min-height: 52px;
-    padding: 0 24px;
-    border: 1px solid #fff;
+
+    padding:
+        0 24px;
+
+    border:
+        1px solid #fff;
+
     font-weight: 800;
+
     font-size: 16px;
-    letter-spacing: .1em;
+
+    letter-spacing: 0.1em;
+
     text-transform: uppercase;
-    transition: .25s ease;
+
+    transition:
+        0.25s ease;
 }
 
 .btn.primary {
+
     background: #62ff00;
+
     color: #050505;
+
     border-color: #62ff00;
 }
 
 .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 25px rgba(98,255,0,.35);
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 0 25px rgba(98, 255, 0, 0.35);
 }
 
+
+/* =========================================================
+   META
+   ========================================================= */
+
 .meta {
+
     margin-top: 8vh;
+
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
     max-width: 850px;
-    border-top: 1px solid #333;
+
+    border-top:
+        1px solid #333;
+
+    position: relative;
+
+    z-index: 12;
 }
 
 .meta div {
-    padding: 18px 20px 0 0;
+
+    padding:
+        18px 20px 0 0;
 }
 
 .meta small {
+
     display: block;
+
     color: #777;
-    font-family: 'Space Mono', monospace;
+
+    font-family:
+        "Space Mono",
+        monospace;
+
     font-size: 9px;
-    letter-spacing: .18em;
+
+    letter-spacing: 0.18em;
+
     margin-bottom: 5px;
 }
 
 .meta strong {
+
     font-size: 20px;
+
     text-transform: uppercase;
 }
 
+
+/* =========================================================
+   BOTTOM SCAN
+   ========================================================= */
+
 .scan {
-    position: absolute;
+
+    position: fixed;
+
     right: 5vw;
+
     bottom: 7vh;
-    z-index: 10;
-    font-family: 'Space Mono', monospace;
+
+    z-index: 40;
+
+    font-family:
+        "Space Mono",
+        monospace;
+
     font-size: 9px;
+
     color: #777;
-    letter-spacing: .15em;
+
+    letter-spacing: 0.15em;
+
     writing-mode: vertical-rl;
 }
 
 .scan::before {
+
     content: "";
+
     display: inline-block;
+
     height: 70px;
-    border-left: 1px solid #62ff00;
+
+    border-left:
+        1px solid #62ff00;
+
     margin-bottom: 12px;
 }
 
-@media (max-width: 700px) {
-    .page {
-        min-height: 100vh;
-        align-items: flex-start;
-    }
 
-    .hero-video iframe {
-        width: 177.78vh;
-        height: 100vh;
-        transform: translate(-50%, -50%) scale(1.15);
-        opacity: .55;
-    }
+/* =========================================================
+   VISITOR COUNTER
+   ========================================================= */
 
-    .video-overlay {
-        background:
-            linear-gradient(180deg, rgba(5,5,5,.08), rgba(5,5,5,.45) 48%, #050505 100%),
-            linear-gradient(90deg, rgba(5,5,5,.72), transparent 60%, rgba(5,5,5,.35));
-    }
+.visitor-counter {
 
-    .content {
-        width: 90vw;
-        padding-top: 6vh;
-        padding-bottom: 8vh;
-    }
+    position: fixed;
 
-    .topline {
-        margin-bottom: 8vh;
-        font-size: 9px;
-    }
+    right: 28px;
 
-    .topline > div:last-child {
-        display: none;
-    }
+    bottom: 24px;
 
-    h1 {
-        font-size: 18vw;
-    }
+    z-index: 100;
 
-    .sub {
-        font-size: 20px;
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-family:
+        "Space Mono",
+        monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(255, 255, 255, 0.35);
+
+    pointer-events: none;
+
+    white-space: nowrap;
+}
+
+.visitor-counter::before {
+
+    content: "";
+
+    width: 5px;
+
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #62ff00;
+
+    box-shadow:
+        0 0 8px rgba(98, 255, 0, 0.6);
+}
+
+.visitor-counter strong {
+
+    font-weight: 400;
+
+    color:
+        rgba(255, 255, 255, 0.65);
+}
+
+
+/* =========================================================
+   LARGE SCREENS
+   ========================================================= */
+
+@media (min-width: 1400px) {
+
+    .hero-video {
+
+        right: -5vw;
+
+        width: 55vw;
     }
 
     .youtube-player {
-        margin-top: 25px;
+
+        right: -220px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .hero-video {
+
+        right: -14vw;
+
+        width: 65vw;
+
+        opacity: 0.34;
     }
 
-    .bio {
-        font-size: 10px;
-        line-height: 1.6;
+    .youtube-player {
+
+        right: -230px;
+
+        opacity: 0.28;
     }
 
-    .meta {
-        grid-template-columns: 1fr 1fr;
-        margin-top: 6vh;
+    .youtube-player:hover {
+
+        right: -100px;
+
+        opacity: 0.58;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .page {
+
+        min-height: 100vh;
+
+        align-items: flex-start;
     }
 
-    .meta div:last-child {
-        grid-column: span 2;
+
+    /* Smaller video layer */
+
+    .hero-video {
+
+        position: fixed;
+
+        top: 8vh;
+
+        right: -30vw;
+
+        width: 105vw;
+
+        height: 55vh;
+
+        opacity: 0.24;
+
+        -webkit-mask-image:
+            linear-gradient(
+                90deg,
+                transparent 0%,
+                #000 42%,
+                transparent 100%
+            );
+
+        mask-image:
+            linear-gradient(
+                90deg,
+                transparent 0%,
+                #000 42%,
+                transparent 100%
+            );
     }
 
-    .scan {
+
+    .hero-video iframe {
+
+        width: 130%;
+
+        height: 130%;
+
+        opacity: 0.65;
+    }
+
+
+    .content {
+
+        width: 90vw;
+
+        padding-top: 6vh;
+
+        padding-bottom: 12vh;
+    }
+
+
+    .topline {
+
+        margin-bottom: 8vh;
+
+        font-size: 9px;
+    }
+
+
+    .topline > div:last-child {
+
         display: none;
     }
 
+
+    h1 {
+
+        font-size: 18vw;
+    }
+
+
+    .sub {
+
+        font-size: 20px;
+
+        max-width: 85vw;
+    }
+
+
+    /* SoundCloud becomes a smaller lower-right layer */
+
+    .youtube-player {
+
+        position: relative;
+
+        top: auto;
+
+        right: -70px;
+
+        width: calc(100% + 20px);
+
+        height: 145px;
+
+        margin:
+            45px 0 0 auto;
+
+        transform:
+            rotate(-1deg);
+
+        opacity: 0.35;
+    }
+
+
+    .youtube-player:hover {
+
+        right: -20px;
+
+        transform:
+            rotate(0deg);
+
+        opacity: 0.6;
+    }
+
+
+    .youtube-label {
+
+        height: 29px;
+
+        padding-left: 12px;
+
+        font-size: 7px;
+    }
+
+
+    .youtube-frame {
+
+        height: 116px;
+    }
+
+
+    .youtube-frame iframe {
+
+        top: -20px;
+
+        height: 145px;
+    }
+
+
+    .soundcloud-svg {
+
+        display: none;
+    }
+
+
+    .soundcloud-glitch-bars {
+
+        opacity: 0.25;
+    }
+
+
+    .bio {
+
+        font-size: 10px;
+
+        line-height: 1.6;
+    }
+
+
+    .meta {
+
+        grid-template-columns:
+            1fr 1fr;
+
+        margin-top: 6vh;
+    }
+
+
+    .meta div:last-child {
+
+        grid-column:
+            span 2;
+    }
+
+
+    .scan {
+
+        display: none;
+    }
+
+
+    .visitor-counter {
+
+        right: 16px;
+
+        bottom: 15px;
+
+        font-size: 7px;
+    }
+
+
     .btn {
+
         width: 100%;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .hero-video {
+
+        right: -38vw;
+
+        width: 115vw;
+
+        opacity: 0.19;
+    }
+
+
+    .youtube-player {
+
+        right: -80px;
+
+        width: calc(100% + 25px);
+
+        opacity: 0.3;
+    }
+
+
+    .visitor-counter {
+
+        right: 12px;
+
+        bottom: 12px;
     }
 }
