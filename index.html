@@ -26,39 +26,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
 
 <main class="page">
 
-
-    <!-- =========================================
-         YOUTUBE VISUAL
-         ========================================= -->
-
+    <!-- BACKGROUND VIDEO -->
     <div class="hero-video" aria-hidden="true">
-
         <iframe
             src="https://www.youtube.com/embed/6CnGqwbpaNg?autoplay=1&mute=1&loop=1&playlist=6CnGqwbpaNg&controls=0&rel=0&modestbranding=1"
             title="Frenetic Frequency Official Video"
-            allow="autoplay; encrypted-media"
+            allow="autoplay; encrypted-media; picture-in-picture"
             allowfullscreen>
         </iframe>
-
     </div>
 
-
+    <!-- VIDEO BLEND -->
     <div class="video-overlay"></div>
 
+    <!-- GRAIN -->
     <div class="noise"></div>
 
 
-    <!-- =========================================
-         MAIN CONTENT
-         ========================================= -->
-
+    <!-- MAIN CONTENT -->
     <section class="content">
-
 
         <div class="topline">
 
@@ -91,95 +81,57 @@
             Dark psychedelic frequencies.
             Relentless pressure.
             Controlled chaos.
-
             <strong>Coming soon.</strong>
         </p>
 
 
-        <!-- =========================================
-             SOUNDCLOUD
-             ========================================= -->
-
+        <!-- SOUNDCLOUD -->
         <div class="soundcloud-player">
 
-
-            <!-- GLITCH BORDER -->
-
-            <div class="sc-border-glitch sc-border-top"></div>
-            <div class="sc-border-glitch sc-border-right"></div>
-            <div class="sc-border-glitch sc-border-bottom"></div>
-            <div class="sc-border-glitch sc-border-left"></div>
-
-
-            <!-- HEADER -->
+            <div class="sc-glitch sc-glitch-top"></div>
+            <div class="sc-glitch sc-glitch-right"></div>
+            <div class="sc-glitch sc-glitch-bottom"></div>
+            <div class="sc-glitch sc-glitch-left"></div>
 
             <div class="sc-header">
 
-                <div class="sc-header-left">
+                <span class="sc-led"></span>
 
-                    <span class="sc-led"></span>
+                <span>OFFICIAL SOUNDCLOUD</span>
 
-                    <span>
-                        SOUND SYSTEM
-                    </span>
-
-                </div>
-
-                <span class="sc-header-code">
-                    FF / 2296428090
+                <span class="sc-code">
+                    FF//AUDIO_01
                 </span>
 
             </div>
 
 
-            <!-- REAL SOUNDCLOUD -->
-
             <div class="sc-player">
 
                 <iframe
-                    class="sc-iframe"
+                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2296428090&color=%23000000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                    width="100%"
+                    height="320"
                     scrolling="no"
                     frameborder="no"
-                    allow="autoplay; encrypted-media"
-                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2296428090&color=%23000000&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+                    allow="autoplay; encrypted-media">
                 </iframe>
 
             </div>
 
 
-            <!-- BOTTOM LABEL -->
-
             <div class="sc-footer">
 
-                <span>
-                    FRENETIC FREQUENCY
-                </span>
+                <span>PLAYLIST / RELEASES</span>
 
-                <span>
-                    RELEASES
-                </span>
-
-                <span class="sc-live">
-                    ● LIVE SIGNAL
-                </span>
+                <span>2296428090</span>
 
             </div>
-
-
-            <!-- DECORATIVE GLITCH -->
-
-            <div class="sc-glitch-block sc-glitch-a"></div>
-            <div class="sc-glitch-block sc-glitch-b"></div>
-            <div class="sc-glitch-block sc-glitch-c"></div>
-
 
         </div>
 
 
-        <!-- =========================================
-             BIO
-             ========================================= -->
-
+        <!-- BIO -->
         <div class="bio">
 
             <span class="bio-label">
@@ -210,18 +162,14 @@
         </div>
 
 
-        <!-- =========================================
-             BUTTONS
-             ========================================= -->
-
+        <!-- BUTTONS -->
         <div class="cta-row">
 
             <a
                 class="btn primary"
                 href="https://yoni-records.com/"
                 target="_blank"
-                rel="noopener noreferrer"
-            >
+                rel="noopener noreferrer">
                 Yoni Records →
             </a>
 
@@ -229,8 +177,7 @@
                 class="btn"
                 href="https://linktr.ee/freneticfrequency"
                 target="_blank"
-                rel="noopener noreferrer"
-            >
+                rel="noopener noreferrer">
                 Follow the Project →
             </a>
 
@@ -238,18 +185,14 @@
                 class="btn"
                 href="https://youtu.be/6CnGqwbpaNg"
                 target="_blank"
-                rel="noopener noreferrer"
-            >
+                rel="noopener noreferrer">
                 YouTube →
             </a>
 
         </div>
 
 
-        <!-- =========================================
-             META
-             ========================================= -->
-
+        <!-- META -->
         <div class="meta">
 
             <div>
@@ -272,24 +215,13 @@
     </section>
 
 
-    <!-- =========================================
-         SIDE TEXT
-         ========================================= -->
-
+    <!-- SIDE MARK -->
     <div class="scan">
-
-        <span class="scan-line"></span>
-
-        COMING SOON /
-        FRENETIC FREQUENCY
-
+        COMING SOON / FRENETIC FREQUENCY
     </div>
 
 
-    <!-- =========================================
-         FOOTER
-         ========================================= -->
-
+    <!-- FIXED VISITOR COUNTER -->
     <footer class="site-footer">
 
         <div class="footer-line"></div>
@@ -300,59 +232,41 @@
 
             <span>© 2026</span>
 
-            <span>
+            <span class="visitor-counter">
                 VISITORS:
-                <strong id="visitorCount">000001</strong>
+                <strong id="visitorCount">000000</strong>
             </span>
 
         </div>
 
     </footer>
 
-
 </main>
 
 
 <script>
-
 (function () {
 
-    const storageKey =
-        "freneticFrequencyVisitorCount";
+    const storageKey = "freneticFrequencyVisitorCount";
 
-    let count =
-        localStorage.getItem(storageKey);
+    let count = localStorage.getItem(storageKey);
 
     if (!count) {
-
         count = 1;
-
     } else {
-
-        count =
-            parseInt(count, 10) + 1;
-
+        count = parseInt(count, 10) + 1;
     }
 
-    localStorage.setItem(
-        storageKey,
-        count
-    );
+    localStorage.setItem(storageKey, count);
 
-    const counter =
-        document.getElementById("visitorCount");
+    const counter = document.getElementById("visitorCount");
 
     if (counter) {
-
-        counter.textContent =
-            String(count).padStart(6, "0");
-
+        counter.textContent = String(count).padStart(6, "0");
     }
 
 })();
-
 </script>
-
 
 </body>
 </html>
