@@ -49,7 +49,9 @@
     </div>
 
 
-    <!-- Visual Effects -->
+    <!-- =========================================
+         VISUAL EFFECTS
+         ========================================= -->
 
     <div class="video-overlay"></div>
 
@@ -63,7 +65,7 @@
     <section class="content">
 
 
-        <!-- Top Information -->
+        <!-- TOP INFORMATION -->
 
         <div class="topline">
 
@@ -79,14 +81,14 @@
         </div>
 
 
-        <!-- Kicker -->
+        <!-- KICKER -->
 
         <div class="kicker">
             Psytrance · Twilight · Live Act
         </div>
 
 
-        <!-- Artist Name -->
+        <!-- ARTIST NAME -->
 
         <h1>
             Frenetic
@@ -95,7 +97,7 @@
         </h1>
 
 
-        <!-- Introduction -->
+        <!-- INTRODUCTION -->
 
         <p class="sub">
             A new experience is being assembled.
@@ -107,10 +109,10 @@
 
 
         <!-- =========================================
-             SOUNDCLOUD PLAYER
+             SOUNDCLOUD
              ========================================= -->
 
-        <div class="soundcloud-player">
+        <div class="soundcloud-widget">
 
             <iframe
                 width="100%"
@@ -158,7 +160,6 @@
                 Artist Bio
             </span>
 
-
             <p>
                 Jose, known as Frenetic Frequency, is a dark night
                 psychedelic trance live act based in Fundão, Portugal.
@@ -168,14 +169,12 @@
                 late-night dancefloors.
             </p>
 
-
             <p>
                 Blending controlled chaos with precise sound design,
                 Frenetic Frequency creates intense, mind-altering sonic journeys
                 that dissolve perception and drive listeners into heightened
                 states of consciousness.
             </p>
-
 
             <p>
                 His performances are immersive, powerful, and uncompromising,
@@ -200,7 +199,6 @@
                 Yoni Records →
             </a>
 
-
             <a
                 class="btn"
                 href="https://linktr.ee/freneticfrequency"
@@ -209,7 +207,6 @@
             >
                 Follow the Project →
             </a>
-
 
             <a
                 class="btn"
@@ -234,12 +231,10 @@
                 <strong>Fundão · Portugal</strong>
             </div>
 
-
             <div>
                 <small>Active since</small>
                 <strong>2006</strong>
             </div>
-
 
             <div>
                 <small>Contact</small>
@@ -252,7 +247,7 @@
 
 
     <!-- =========================================
-         BOTTOM TEXT
+         SIDE SCAN
          ========================================= -->
 
     <div class="scan">
@@ -261,7 +256,7 @@
 
 
     <!-- =========================================
-         FIXED FOOTER / VISITOR COUNTER
+         FIXED FOOTER
          ========================================= -->
 
     <footer class="site-footer">
@@ -279,15 +274,14 @@
             </span>
 
             <span class="visitor-counter">
-
                 VISITORS:
                 <strong id="visitorCount">000000</strong>
-
             </span>
 
         </div>
 
     </footer>
+
 
 </main>
 
@@ -300,11 +294,9 @@
 
 (function () {
 
-    const storageKey =
-        "freneticFrequencyVisitorCount";
+    const storageKey = "freneticFrequencyVisitorCount";
 
-    let count =
-        localStorage.getItem(storageKey);
+    let count = localStorage.getItem(storageKey);
 
     if (!count) {
 
@@ -312,18 +304,13 @@
 
     } else {
 
-        count =
-            parseInt(count, 10) + 1;
+        count = parseInt(count, 10) + 1;
 
     }
 
-    localStorage.setItem(
-        storageKey,
-        count
-    );
+    localStorage.setItem(storageKey, count);
 
-    const counter =
-        document.getElementById("visitorCount");
+    const counter = document.getElementById("visitorCount");
 
     if (counter) {
 
