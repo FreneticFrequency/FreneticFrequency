@@ -32,6 +32,7 @@
 
 <main class="page">
 
+
     <!-- =========================================
          YOUTUBE BACKGROUND VIDEO
          ========================================= -->
@@ -109,22 +110,38 @@
              SOUNDCLOUD PLAYER
              ========================================= -->
 
-        <div class="youtube-player">
+        <div class="soundcloud-player">
 
-            <div class="youtube-label">
-                Official SoundCloud
-            </div>
+            <iframe
+                width="100%"
+                height="450"
+                scrolling="no"
+                frameborder="no"
+                allow="autoplay; encrypted-media"
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2296428090&color=%23000000&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+            </iframe>
 
-            <div class="youtube-frame">
+            <div class="soundcloud-credit">
 
-                <iframe
-                    width="100%"
-                    height="450"
-                    scrolling="no"
-                    frameborder="no"
-                    allow="autoplay"
-                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A2296428090&color=%23272929&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
-                </iframe>
+                <a
+                    href="https://soundcloud.com/freneticfrequency"
+                    title="Frenetic Frequency"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Frenetic Frequency
+                </a>
+
+                ·
+
+                <a
+                    href="https://soundcloud.com/freneticfrequency/sets/releases"
+                    title="Releases"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Releases
+                </a>
 
             </div>
 
@@ -174,7 +191,6 @@
 
         <div class="cta-row">
 
-
             <a
                 class="btn primary"
                 href="https://yoni-records.com/"
@@ -213,7 +229,6 @@
 
         <div class="meta">
 
-
             <div>
                 <small>Based in</small>
                 <strong>Fundão · Portugal</strong>
@@ -231,7 +246,6 @@
                 <strong>freneticfrequency@gmail.com</strong>
             </div>
 
-
         </div>
 
     </section>
@@ -245,7 +259,83 @@
         COMING SOON / FRENETIC FREQUENCY
     </div>
 
+
+    <!-- =========================================
+         FIXED FOOTER / VISITOR COUNTER
+         ========================================= -->
+
+    <footer class="site-footer">
+
+        <div class="footer-line"></div>
+
+        <div class="footer-content">
+
+            <span>
+                FRENETIC FREQUENCY
+            </span>
+
+            <span>
+                © 2026
+            </span>
+
+            <span class="visitor-counter">
+
+                VISITORS:
+                <strong id="visitorCount">000000</strong>
+
+            </span>
+
+        </div>
+
+    </footer>
+
 </main>
+
+
+<!-- =========================================
+     VISITOR COUNTER
+     ========================================= -->
+
+<script>
+
+(function () {
+
+    const storageKey =
+        "freneticFrequencyVisitorCount";
+
+    let count =
+        localStorage.getItem(storageKey);
+
+    if (!count) {
+
+        count = 1;
+
+    } else {
+
+        count =
+            parseInt(count, 10) + 1;
+
+    }
+
+    localStorage.setItem(
+        storageKey,
+        count
+    );
+
+    const counter =
+        document.getElementById("visitorCount");
+
+    if (counter) {
+
+        counter.textContent =
+            String(count).padStart(6, "0");
+
+    }
+
+})();
+
+</script>
+
 
 </body>
 
