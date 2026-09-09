@@ -159,6 +159,27 @@
 
 
         <!-- =========================================
+             SPOTIFY PLAYER
+             ========================================= -->
+
+        <div class="spotify-widget">
+
+            <iframe
+                data-testid="embed-iframe"
+                style="border-radius:12px"
+                src="https://open.spotify.com/embed/playlist/7pUfWK5onlWYk31l54Xb3r?utm_source=generator&theme=0&si=a728f8c496c14c9d"
+                width="100%"
+                height="352"
+                frameborder="0"
+                allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy">
+            </iframe>
+
+        </div>
+
+
+        <!-- =========================================
              ARTIST BIO
              ========================================= -->
 
@@ -282,10 +303,8 @@
             </span>
 
             <span class="visitor-counter">
-
                 VISITORS:
                 <strong id="visitorCount">000000</strong>
-
             </span>
 
         </div>
@@ -324,7 +343,8 @@
 
     if (counter) {
 
-        counter.textContent = String(count).padStart(6, "0");
+        counter.textContent =
+            String(count).padStart(6, "0");
 
     }
 
